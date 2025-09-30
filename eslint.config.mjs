@@ -1,62 +1,59 @@
-import path from "node:path";
-import { fileURLToPath } from "node:url";
+// eslint.config.mjs
+import tseslint from 'typescript-eslint';
+import globals from 'globals';
+import prettier from 'eslint-config-prettier';
 
-import { fixupPluginRules } from "@eslint/compat";
-import { FlatCompat } from "@eslint/eslintrc";
-import js from "@eslint/js";
-import typescriptEslint from "@typescript-eslint/eslint-plugin";
-import tsParser from "@typescript-eslint/parser";
-import { defineConfig } from "eslint/config";
-import _import from "eslint-plugin-import";
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const compat = new FlatCompat({
-  baseDirectory: __dirname,
-  recommendedConfig: js.configs.recommended,
-  allConfig: js.configs.all,
-});
-
-export default defineConfig([
+/**
+ * If your project is single-package with tsconfig in repo root,
+ * this will work out of the box. If not, adjust `project`.
+ */
+export default tseslint.config(
+  // 1) Ignore globs
   {
-    extends: compat.extends(
-      "eslint:recommended",
-      "plugin:@typescript-eslint/recommended",
-      "prettier",
-    ),
+    ignores: [
+      'node_modules/',
+      'build/',
+      // Add more if needed:
+      // 'dist/', 'tmp/', '*.config.*'
+    ],
+  },
 
-    plugins: {
-      "@typescript-eslint": typescriptEslint,
-      import: fixupPluginRules(_import),
-    },
+  // 2) Base JS + TS recommended, with type-checking
+  ...tseslint.configs.recommendedTypeChecked, // requires parserOptions.project
 
+  // 3) Your project-specific config
+  {
     languageOptions: {
-      parser: tsParser,
+      ecmaVersion: 'latest',
+      sourceType: 'module',
+      globals: {
+        ...globals.node, // Node globals (require, module, etc. though you use ESM)
+      },
+      parserOptions: {
+        project: ['./tsconfig.json'],
+        tsconfigRootDir: new URL('.', import.meta.url).pathname, // resolves tsconfig relative to this file
+      },
     },
 
     rules: {
-      "import/order": [
-        "error",
-        {
-          groups: [
-            "builtin",
-            "external",
-            "internal",
-            "parent",
-            "sibling",
-            "index",
-            "object",
-            "type",
-          ],
-
-          "newlines-between": "always",
-
-          alphabetize: {
-            order: "asc",
-            caseInsensitive: true,
-          },
-        },
+      // TS/quality
+      '@typescript-eslint/consistent-type-imports': ['error', { prefer: 'type-imports' }],
+      '@typescript-eslint/no-unused-vars': [
+        'error',
+        { argsIgnorePattern: '^_', varsIgnorePattern: '^_' },
       ],
+      '@typescript-eslint/require-await': 'off', // turn on if you want
+      '@typescript-eslint/no-misused-promises': [
+        'error',
+        { checksVoidReturn: { attributes: false } },
+      ],
+
+      // Node ESM niceties (optional)
+      'no-console': 'off',
+      'no-duplicate-imports': 'error',
     },
   },
-]);
+
+  // 4) Turn off formatting-related rules → Prettier owns formatting
+  prettier,
+);

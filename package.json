@@ -1,7 +1,6 @@
 {
   "name": "mcp-hotpepper",
   "version": "1.0.0",
-  "main": "index.js",
   "description": "",
   "private": false,
   "keywords": [
@@ -12,6 +11,14 @@
   "author": "tongduyquang",
   "license": "MIT",
   "type": "module",
+  "main": "./build/index.js",
+  "types": "./build/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./build/index.js",
+      "types": "./build/index.d.ts"
+    }
+  },
   "bin": {
     "mcp-hotpepper": "./build/index.js"
   },
@@ -28,7 +35,7 @@
   "scripts": {
     "prepare": "npm run build",
     "build": "tsc && node -e \"require('fs').chmodSync('build/index.js', '755')\"",
-    "serve": "node build/server.js",
+    "serve": "node build/index.js",
     "lint": "eslint src --ext .ts",
     "lint:fix": "eslint src --ext .ts --fix",
     "test": "vitest run",
@@ -54,12 +61,6 @@
     "tsx": "^4.20.6",
     "typescript": "^5.9.2",
     "vitest": "^3.2.4"
-  },
-  "lint-staged": {
-    "*.ts": [
-      "eslint --fix",
-      "prettier --write"
-    ]
   },
   "engines": {
     "node": ">=20.0.0"
