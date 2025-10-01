@@ -1,0 +1,22 @@
+{
+  "service_area_code": "SA41",
+  "area_name": "北海道のエリアすべて",
+  "middle_area": [
+    {
+      "code": "Y500",
+      "name": "すすきの",
+      "service_area": "SA41"
+    },
+    {
+      "code": "Y505",
+      "name": "札幌（札幌駅・大通）",
+      "service_area": "SA41"
+    },
+    {
+      "code": "Y530",
+      "name": "旭川",
+      "service_area": "SA41"
+    }
+  ],
+  "small_area": {}
+}
