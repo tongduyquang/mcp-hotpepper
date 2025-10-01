@@ -10,6 +10,12 @@ export const config = {
     END_POINT: {
         GOURMET: '/gourmet/v1/',
         SHOP: '/shop/v1/',
+        BUDGET: '/budget/v1/',
+        LARGE_SERVICE_AREA: '/large_service_area/v1/',
+        SERVICE_AREA: '/service_area/v1/',
+        LARGE_AREA: '/large_area/v1/',
+        MIDDLE_AREA: '/middle_area/v1/',
+        SMALL_AREA: '/small_area/v1/',
     }
 
 } as const;
