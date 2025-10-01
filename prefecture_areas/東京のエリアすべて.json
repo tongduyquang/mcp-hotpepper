@@ -1,0 +1,22 @@
+{
+  "service_area_code": "SA11",
+  "area_name": "東京のエリアすべて",
+  "middle_area": [
+    {
+      "code": "Y100",
+      "name": "銀座・有楽町・築地・月島・勝どき",
+      "service_area": "SA11"
+    },
+    {
+      "code": "Y105",
+      "name": "新橋・汐留・虎ノ門・神谷町・霞ヶ関",
+      "service_area": "SA11"
+    },
+    {
+      "code": "Y110",
+      "name": "新宿",
+      "service_area": "SA11"
+    }
+  ],
+  "small_area": {}
+}

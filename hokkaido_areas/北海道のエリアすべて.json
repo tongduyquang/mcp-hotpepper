@@ -1,0 +1,67 @@
+{
+  "service_area_code": "SA41",
+  "area_name": "北海道のエリアすべて",
+  "middle_area": [
+    {
+      "code": "Y500",
+      "name": "すすきの",
+      "service_area": "SA41"
+    },
+    {
+      "code": "Y505",
+      "name": "札幌（札幌駅・大通）",
+      "service_area": "SA41"
+    },
+    {
+      "code": "Y510",
+      "name": "麻生・北24条（北区・東区）",
+      "service_area": "SA41"
+    },
+    {
+      "code": "Y511",
+      "name": "南郷・新札幌　白石・厚別・清田",
+      "service_area": "SA41"
+    },
+    {
+      "code": "Y512",
+      "name": "琴似・円山公園　中央・西・手稲",
+      "service_area": "SA41"
+    },
+    {
+      "code": "Y513",
+      "name": "平岸・澄川（豊平区・南区）",
+      "service_area": "SA41"
+    },
+    {
+      "code": "Y530",
+      "name": "旭川",
+      "service_area": "SA41"
+    },
+    {
+      "code": "Y883",
+      "name": "函館",
+      "service_area": "SA41"
+    },
+    {
+      "code": "Y884",
+      "name": "小樽・千歳・苫小牧・札幌近郊",
+      "service_area": "SA41"
+    },
+    {
+      "code": "Y501",
+      "name": "室蘭・登別・白老",
+      "service_area": "SA41"
+    },
+    {
+      "code": "Y885",
+      "name": "帯広・釧路・北見・河東郡",
+      "service_area": "SA41"
+    },
+    {
+      "code": "Y502",
+      "name": "富良野・その他北海道",
+      "service_area": "SA41"
+    }
+  ],
+  "small_area": {}
+}
