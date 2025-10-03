@@ -6,11 +6,8 @@ import {
 import { z } from "zod";
 import axios from "axios";
 import config from "../config.js";
+import { SearchByIdInputSchema } from "./schemas.js";
 
-// SChema for input validation
-export const SearchByIdInputSchema = z.object({
-    id: z.string().min(1, "ID is required"),
-});
 
 const handleSearchById = async (params: any): Promise<CallToolResult> => {
     try {

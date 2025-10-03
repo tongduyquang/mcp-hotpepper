@@ -16,10 +16,10 @@ import {
  * Dispatch tools on request
  */
 
-export async function handleToolCall(toolName: string, params: any): Promise<any> {
-  console.log(`Handling tool call for: ${toolName} with params:`, params);
+export async function handleToolCall(tool: string, params: any): Promise<any> {
+  console.log(`Handling tool call for: ${tool} with params:`, params);
   // Dispatch based on tool name
-  switch (toolName) {
+  switch (tool) {
     case SEARCH_GOURMET_BY_ID.name:
       return await handleSearchById(params);
     case SEARCH_GOURMET_BY_NAME.name:
@@ -31,7 +31,7 @@ export async function handleToolCall(toolName: string, params: any): Promise<any
     case SEARCH_GOURMET_BY_TEL.name:
       return await handleSearchByTel(params);
     default:
-      throw new McpError(ErrorCode.MethodNotFound, `Unknown tool: ${toolName}`);
+      throw new McpError(ErrorCode.MethodNotFound, `Unknown tool: ${tool}`);
   }
 }
 

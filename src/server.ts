@@ -64,6 +64,11 @@ function setupRequestHandlers(server: Server) {
     try {
       const { tool, input } = request.params;
 
+      // Type validation for tool parameter
+      if (typeof tool !== 'string') {
+        throw new McpError(ErrorCode.InvalidParams, 'Tool name must be a string');
+      }
+
       return await handleToolCall(tool, input);
     } catch (error) {
       return handleMcpError(error, 'CallToolRequest');
