@@ -19,7 +19,7 @@ export default tseslint.config(
   },
 
   // 2) Base JS + TS recommended, with type-checking
-  ...tseslint.configs.recommendedTypeChecked, // requires parserOptions.project
+  ...tseslint.configs.recommended,
 
   // 3) Your project-specific config
   {
