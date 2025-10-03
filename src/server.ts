@@ -9,8 +9,7 @@ import {
   ReadResourceRequestSchema,
   ListToolsRequestSchema,
 } from '@modelcontextprotocol/sdk/types.js';
-import config from './config.js';
-import axios from 'axios';
+
 import { handleToolCall, handleListResources, handleReadResource } from './handlers.js';
 import { TOOLS } from './tools/tools.js';
 import { handleMcpError } from './errors.js';
