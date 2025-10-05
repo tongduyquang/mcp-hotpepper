@@ -1,4 +1,3 @@
-// server.ts
 import { Server } from '@modelcontextprotocol/sdk/server/index.js';
 import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
 import {
@@ -13,6 +12,7 @@ import {
 import { handleToolCall, handleListResources, handleReadResource } from './handlers.js';
 import { TOOLS } from './tools/tools.js';
 import { handleMcpError } from './errors.js';
+
 export function createServer() {
   const server = new Server(
     {

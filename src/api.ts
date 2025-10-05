@@ -16,7 +16,6 @@ export async function fetchData(endpoint: string, params: Record<string, string>
 
   console.log(`Fetching data from URL: ${url} with params:`, params);
   try {
-    // Sample: http://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=[APIキー]&lat=34.67&lng=135.52&range=5&order=4
     const response = await apiClient.get(endpoint, { 
       params: { ...params, key: config.API_KEY } 
     });

@@ -1,13 +1,11 @@
 import {
   CallToolResult,
-  ErrorCode,
-  McpError,
 } from "@modelcontextprotocol/sdk/types.js";
-import { z } from "zod";
+
 import axios from "axios";
 import config from "../config.js";
 import { SearchByIdInputSchema } from "./schemas.js";
-
+import { handleMcpError, handleApiError } from "../errors.js";
 
 const handleSearchById = async (params: any): Promise<CallToolResult> => {
     try {
@@ -15,7 +13,7 @@ const handleSearchById = async (params: any): Promise<CallToolResult> => {
         const validatedParams = SearchByIdInputSchema.parse(params);
         
         // Make API call to HotPepper API
-        const response = await axios.get('https://webservice.recruit.co.jp/hotpepper/gourmet/v1/', {
+        const response = await axios.get(`${config.BASE_URL}${config.END_POINT.GOURMET}`, {
             params: {
                 key: config.API_KEY,
                 id: validatedParams.id,
@@ -33,27 +31,13 @@ const handleSearchById = async (params: any): Promise<CallToolResult> => {
             ]
         };
     } catch (error) {
-        // Handle validation errors
-        if (error instanceof z.ZodError) {
-            throw new McpError(
-                ErrorCode.InvalidParams,
-                `Invalid parameters: ${error.errors.map(e => e.message).join(', ')}`
-            );
-        }
-        
         // Handle API errors
         if (axios.isAxiosError(error)) {
-            throw new McpError(
-                ErrorCode.InternalError,
-                `API request failed: ${error.message}`
-            );
+            throw handleApiError(error, 'handleSearchById');
         }
         
-        // Handle other errors
-        throw new McpError(
-            ErrorCode.InternalError,
-            `Search by ID failed: ${error instanceof Error ? error.message : 'Unknown error'}`
-        );
+        // Handle MCP errors
+        throw handleMcpError(error, 'handleSearchById');
     }
 };
 
