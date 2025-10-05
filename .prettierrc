@@ -1,9 +1,41 @@
 {
-  "singleQuote": true,
-  "semi": true,
-  "trailingComma": "all",
-  "printWidth": 100,
-  "tabWidth": 2,
+  "parser": "typescript",
+  "arrowParens": "always",
+  "bracketSpacing": true,
   "endOfLine": "lf",
-  "arrowParens": "always"
+  "htmlWhitespaceSensitivity": "css",
+  "insertPragma": false,
+  "jsxBracketSameLine": false,
+  "jsxSingleQuote": false,
+  "printWidth": 80,
+  "proseWrap": "preserve",
+  "quoteProps": "as-needed",
+  "semi": true,
+  "singleQuote": false,
+  "tabWidth": 2,
+  "trailingComma": "all",
+  "useTabs": false,
+  "embeddedLanguageFormatting": "auto",
+  "vueIndentScriptAndStyle": false,
+  "experimentalTernaries": false,
+  "plugins": ["@trivago/prettier-plugin-sort-imports"],
+  "importOrder": [
+    "^react",
+    "components/material/(.*)$",
+    "components/ui/(.*)$",
+    "components/(.*)$",
+    "^src/(.*)$",
+    "<THIRD_PARTY_MODULES>",
+    "^[./]"
+  ],
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true,
+  "overrides": [
+    {
+      "files": "*.json",
+      "options": {
+        "parser": "json"
+      }
+    }
+  ]
 }
