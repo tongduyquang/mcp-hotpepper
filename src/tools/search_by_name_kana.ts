@@ -4,19 +4,19 @@ import {
 
 import axios from "axios";
 import config from "../config.js";
-import { SearchByNameInputSchema } from "./schemas.js";
+import { SearchByNameKanaInputSchema } from "./schemas.js";
 import { handleMcpError, handleApiError } from "../errors.js";
 
-const handleSearchByName = async (params: any): Promise<CallToolResult> => {
+const handleSearchByNameKana = async (params: any): Promise<CallToolResult> => {
     try {
         // Validate input parameters
-        const validatedParams = SearchByNameInputSchema.parse(params);
+        const validatedParams = SearchByNameKanaInputSchema.parse(params);
         
         // Make API call to HotPepper API
         const response = await axios.get(`${config.BASE_URL}${config.END_POINT.GOURMET}`, {
             params: {
                 key: config.API_KEY,
-                name: validatedParams.name,
+                name: validatedParams.name_kana,
                 format: 'json'
             }
         });
@@ -41,4 +41,4 @@ const handleSearchByName = async (params: any): Promise<CallToolResult> => {
     }
 };
 
-export { handleSearchByName };
+export { handleSearchByNameKana };

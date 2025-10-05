@@ -4,13 +4,20 @@ import { handleSearchByName } from './tools/search_by_name.js';
 import { handleSearchByNameKana } from './tools/searchByNameKana.js';
 import { handleSearchByAny } from './tools/searchByAny.js';
 import { handleSearchByTel } from './tools/searchByTel.js';
+// import { handleSearchByKeyword } from './tools/searchByKeyword.js';
 
 import {
-  SEARCH_GOURMET_BY_ANY,
+  SEARCH_GOURMET_BY_NAME_ANY,
   SEARCH_GOURMET_BY_ID,
   SEARCH_GOURMET_BY_NAME,
   SEARCH_GOURMET_BY_NAME_KANA,
   SEARCH_GOURMET_BY_TEL,
+  SEARCH_GOURMETS_BY_KEYWORD,
+  SEARCH_GOURMETS_BY_LARGE_SERVICE_AREA,
+  SEARCH_GOURMETS_BY_SERVICE_AREA,
+  SEARCH_GOURMETS_BY_LARGE_AREA,
+  SEARCH_GOURMETS_BY_MIDDLE_AREA,
+  SEARCH_GOURMETS_BY_SMALL_AREA,
 } from './tools/tools.js';
 
 /**
@@ -26,10 +33,12 @@ export async function handleToolCall(tool: string, params: any): Promise<any> {
       return await handleSearchByName(params);
     case SEARCH_GOURMET_BY_NAME_KANA.name:
       return await handleSearchByNameKana(params);
-    case SEARCH_GOURMET_BY_ANY.name:
+    case SEARCH_GOURMET_BY_NAME_ANY.name:
       return await handleSearchByAny(params);
     case SEARCH_GOURMET_BY_TEL.name:
       return await handleSearchByTel(params);
+    // case SEARCH_GOURMETS_BY_KEYWORD.name:
+    //   return await handleSearchByKeyword(params);
     default:
       throw new McpError(ErrorCode.MethodNotFound, `Unknown tool: ${tool}`);
   }
