@@ -8,20 +8,32 @@ import { SearchByIdInputSchema } from "./schemas.js";
 import { handleMcpError, handleApiError } from "../errors.js";
 
 const handleSearchById = async (params: any): Promise<CallToolResult> => {
+ 
+    // Validate input parameters
+    const validatedParams = SearchByIdInputSchema.safeParse(params);
+    
+    if (!validatedParams.success) {
+        const errorMessages = validatedParams.error.errors.map(err => err.message).join(", ");
+        throw new Error(`Invalid input parameters: ${errorMessages}`);
+    }
+
     try {
-        // Validate input parameters
-        const validatedParams = SearchByIdInputSchema.parse(params);
-        
         // Make API call to HotPepper API
         const response = await axios.get(`${config.BASE_URL}${config.END_POINT.GOURMET}`, {
             params: {
                 key: config.API_KEY,
-                id: validatedParams.id,
+                id: validatedParams.data.id,
                 format: 'json'
             }
         });
+        if (!response.data) {
+            return {
+                content: [
+                    { type: "text", text: "No data found for the given ID." }
+                ]
+            };
+        }
 
-        // Return successful result
         return {
             content: [
                 {
@@ -40,5 +52,4 @@ const handleSearchById = async (params: any): Promise<CallToolResult> => {
         throw handleMcpError(error, 'handleSearchById');
     }
 };
-
 export { handleSearchById };
