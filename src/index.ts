@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import { createServer } from "./server.js";
 import {config} from "./config.js";
 

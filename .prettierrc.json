@@ -20,10 +20,6 @@
   "experimentalTernaries": false,
   "plugins": ["@trivago/prettier-plugin-sort-imports"],
   "importOrder": [
-    "^react",
-    "components/material/(.*)$",
-    "components/ui/(.*)$",
-    "components/(.*)$",
     "^src/(.*)$",
     "<THIRD_PARTY_MODULES>",
     "^[./]"

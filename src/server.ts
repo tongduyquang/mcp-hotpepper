@@ -1,15 +1,14 @@
 import { Server } from '@modelcontextprotocol/sdk/server/index.js';
 import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
 import {
-  McpError,
-  ErrorCode,
+
   CallToolRequestSchema,
-  ListResourcesRequestSchema,
-  ReadResourceRequestSchema,
+  // ListResourcesRequestSchema,
+  // ReadResourceRequestSchema,
   ListToolsRequestSchema,
 } from '@modelcontextprotocol/sdk/types.js';
 
-import { handleToolCall, handleListResources, handleReadResource } from './handlers.js';
+import { handleToolCall } from './handlers.js'; // , handleListResources, handleReadResource
 import { TOOLS } from './tools/tools.js';
 import { handleMcpError } from './errors.js';
 
@@ -61,28 +60,24 @@ function setupRequestHandlers(server: Server) {
   // Handle tool calls
   server.setRequestHandler(CallToolRequestSchema, async (request) => {
     try {
-      const { tool, input } = request.params;
+            const toolName = request.params.name;
+      const toolArgs = request.params.arguments;
 
-      // Type validation for tool parameter
-      if (typeof tool !== 'string') {
-        throw new McpError(ErrorCode.InvalidParams, 'Tool name must be a string');
-      }
-
-      return await handleToolCall(tool, input);
+      return await handleToolCall(toolName, toolArgs);
     } catch (error) {
       return handleMcpError(error, 'CallToolRequest');
     }
   });
   // Handle listing resources
-  server.setRequestHandler(ListResourcesRequestSchema, async (request) => {
-    try {
-      return { resources: await handleListResources() };
-    } catch (error) {
-      return handleMcpError(error, 'ListResourcesRequest');
-    }
-  });
+  // server.setRequestHandler(ListResourcesRequestSchema, async (request) => {
+  //   try {
+  //     return { resources: await handleListResources() };
+  //   } catch (error) {
+  //     return handleMcpError(error, 'ListResourcesRequest');
+  //   }
+  // });
   // Handle listing tools
-  server.setRequestHandler(ListToolsRequestSchema, async (request) => {
+  server.setRequestHandler(ListToolsRequestSchema, async () => {
     try {
       return { tools: TOOLS }; // TODO: Implement tool listing
     } catch (error) {

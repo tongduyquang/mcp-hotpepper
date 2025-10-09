@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "mcp-hotpepper": {
+      "command": "node",
+      "args": ["C:/Users/qatongduy/dev/mcp-hotpepper/build/index.js"],
+      "env": {
+        "HOTPEPPER_API_KEY": "d8226a6e28c2de75"
+      }
+    }
+  }
+}
