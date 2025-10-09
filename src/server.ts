@@ -1,7 +1,6 @@
 import { Server } from '@modelcontextprotocol/sdk/server/index.js';
 import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
 import {
-
   CallToolRequestSchema,
   // ListResourcesRequestSchema,
   // ReadResourceRequestSchema,
@@ -60,7 +59,7 @@ function setupRequestHandlers(server: Server) {
   // Handle tool calls
   server.setRequestHandler(CallToolRequestSchema, async (request) => {
     try {
-            const toolName = request.params.name;
+      const toolName = request.params.name;
       const toolArgs = request.params.arguments;
 
       return await handleToolCall(toolName, toolArgs);

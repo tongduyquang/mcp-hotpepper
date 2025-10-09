@@ -4,13 +4,13 @@ import { handleSearchByArea } from './tools/search_by_area.js';
 import { handleSearchByRecommend } from './tools/search_by_recommend.js';
 import { handleMcpError } from './errors.js';
 import {
-  // Search gourmets 
+  // Search gourmets
   SEARCH_GOURMETS_BY_KEYWORD,
   SEARCH_GOURMETS_BY_AREA,
   SEARCH_GOURMETS_BY_RECOMMEND,
 } from './tools/tools.js';
 
-// import { 
+// import {
 //   SEARCH_CODES_FOR_BUDGET,
 //   SEARCH_CODES_FOR_GENRE,
 //   SEARCH_CODES_FOR_SPECIAL,
@@ -26,7 +26,10 @@ import {
 /**
  * Dispatch tools on request
  */
-export async function handleToolCall(toolName: string, toolArgs: any): Promise<any> {
+export async function handleToolCall(
+  toolName: string,
+  toolArgs: any,
+): Promise<any> {
   console.log(`Handling tool call for: ${toolName} with params:`, toolArgs);
   // Dispatch based on tool name
   switch (toolName) {
@@ -38,12 +41,15 @@ export async function handleToolCall(toolName: string, toolArgs: any): Promise<a
       return await handleSearchByRecommend(toolArgs);
 
     default:
-      throw handleMcpError(new McpError(ErrorCode.InvalidRequest, `Unknown tool: ${toolName}`), 'handleToolCall');
+      throw handleMcpError(
+        new McpError(ErrorCode.InvalidRequest, `Unknown tool: ${toolName}`),
+        'handleToolCall',
+      );
   }
 }
 
 // export async function handleListResources(): Promise<any> {
-  
+
 // }
 
 // export async function handleReadResource(resourceId: string, params: any): Promise<any> {}

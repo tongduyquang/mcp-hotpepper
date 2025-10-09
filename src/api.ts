@@ -7,17 +7,20 @@ const apiClient = axios.create({
   baseURL: config.BASE_URL,
   timeout: 10000, // 10 second timeout
   headers: {
-    'Accept': 'application/json',
-  }
+    Accept: 'application/json',
+  },
 });
 
-export async function fetchData(endpoint: string, params: Record<string, string>): Promise<any> {
+export async function fetchData(
+  endpoint: string,
+  params: Record<string, string>,
+): Promise<any> {
   const url = `${config.BASE_URL}${endpoint}`;
 
   console.log(`Fetching data from URL: ${url} with params:`, params);
   try {
-    const response = await apiClient.get(endpoint, { 
-      params: { ...params, key: config.API_KEY } 
+    const response = await apiClient.get(endpoint, {
+      params: { ...params, key: config.API_KEY },
     });
 
     console.log('Fetched data successfully!');

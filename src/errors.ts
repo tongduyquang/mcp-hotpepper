@@ -28,10 +28,12 @@ export function logWarning(warning: string, context: string): void {
  */
 export function handleApiError(error: unknown, context: string): Error {
   logError(error, context);
-  
-    // Zod validation error handler
+
+  // Zod validation error handler
   if (error instanceof ZodError) {
-    const details = error.errors.map(e => `${e.path.join('.')}: ${e.message}`).join('; ');
+    const details = error.errors
+      .map((e) => `${e.path.join('.')}: ${e.message}`)
+      .join('; ');
     return new Error(`Validation Error in ${context}: ${details}`);
   }
 
@@ -40,11 +42,11 @@ export function handleApiError(error: unknown, context: string): Error {
     const message = error.response?.data?.message || error.message;
     return new Error(`API Error [${status}]: ${message} in ${context}`);
   }
-  
+
   if (error instanceof Error) {
     return new Error(`${error.message} in ${context}`);
   }
-  
+
   return new Error(`Unknown error in ${context}`);
 }
 
@@ -57,10 +59,15 @@ export function handleApiError(error: unknown, context: string): Error {
 export function handleMcpError(error: unknown, context: string): never {
   logError(error, context);
 
-    // Zod validation error handler for MCP
+  // Zod validation error handler for MCP
   if (error instanceof ZodError) {
-    const details = error.errors.map(e => `${e.path.join('.')}: ${e.message}`).join('; ');
-    throw new McpError(ErrorCode.InvalidParams, `Validation Error in ${context}: ${details}`);
+    const details = error.errors
+      .map((e) => `${e.path.join('.')}: ${e.message}`)
+      .join('; ');
+    throw new McpError(
+      ErrorCode.InvalidParams,
+      `Validation Error in ${context}: ${details}`,
+    );
   }
 
   if (error instanceof McpError) {

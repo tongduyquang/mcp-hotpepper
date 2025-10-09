@@ -1,7 +1,7 @@
 import { McpError, ErrorCode } from '@modelcontextprotocol/sdk/types.js';
-import { handleMcpError, handleApiError } from "../errors.js";
-import { SearchGourmetsByAreaInputSchema } from "./schemas.js";
-import config from "../config.js";
+import { handleMcpError, handleApiError } from '../errors.js';
+import { SearchGourmetsByAreaInputSchema } from './schemas.js';
+import config from '../config.js';
 
 /**
  * Handle search by area tool for MCP server
@@ -32,22 +32,29 @@ export async function handleSearchByArea(params: any) {
 
     // Create search description for logging
     const searchTerms = [];
-    if (validatedParams.large_service_area) searchTerms.push(`large_service_area: ${validatedParams.large_service_area}`);
-    if (validatedParams.service_area) searchTerms.push(`service_area: ${validatedParams.service_area}`);
-    if (validatedParams.large_area) searchTerms.push(`large_area: ${validatedParams.large_area}`);
-    if (validatedParams.middle_area) searchTerms.push(`middle_area: ${validatedParams.middle_area}`);
-    if (validatedParams.small_area) searchTerms.push(`small_area: ${validatedParams.small_area}`);
-    
+    if (validatedParams.large_service_area)
+      searchTerms.push(
+        `large_service_area: ${validatedParams.large_service_area}`,
+      );
+    if (validatedParams.service_area)
+      searchTerms.push(`service_area: ${validatedParams.service_area}`);
+    if (validatedParams.large_area)
+      searchTerms.push(`large_area: ${validatedParams.large_area}`);
+    if (validatedParams.middle_area)
+      searchTerms.push(`middle_area: ${validatedParams.middle_area}`);
+    if (validatedParams.small_area)
+      searchTerms.push(`small_area: ${validatedParams.small_area}`);
+
     const searchParams = searchTerms.join(', ');
     console.log(`Searching gourmets by area: ${searchParams}`);
 
     // Make the API request
     const response = await fetch(apiUrl.toString());
-    
+
     if (!response.ok) {
       const apiError = handleApiError(
-        new Error(`HTTP ${response.status}: ${response.statusText}`), 
-        'handleSearchByArea API request'
+        new Error(`HTTP ${response.status}: ${response.statusText}`),
+        'handleSearchByArea API request',
       );
       throw new McpError(ErrorCode.InternalError, apiError.message);
     }
@@ -56,29 +63,37 @@ export async function handleSearchByArea(params: any) {
 
     // Handle API errors from HotPepper
     if (data.results?.error) {
-      const apiError = handleApiError(data.results.error, 'handleSearchByArea HotPepper API');
+      const apiError = handleApiError(
+        data.results.error,
+        'handleSearchByArea HotPepper API',
+      );
       throw new McpError(ErrorCode.InternalError, apiError.message);
     }
 
     // Log successful search
-    console.log(`Found ${data.results?.results_available || 0} results for area search: ${searchParams}`);
+    console.log(
+      `Found ${data.results?.results_available || 0} results for area search: ${searchParams}`,
+    );
 
     // Return structured results
     return {
       content: [
         {
-          type: "text",
-          text: JSON.stringify({
-            search_params: searchParams,
-            total_count: data.results?.results_available || 0,
-            returned_count: data.results?.results_returned || 0,
-            start: data.results?.results_start || 1,
-            shops: data.results?.shop || []
-          }, null, 2)
-        }
-      ]
+          type: 'text',
+          text: JSON.stringify(
+            {
+              search_params: searchParams,
+              total_count: data.results?.results_available || 0,
+              returned_count: data.results?.results_returned || 0,
+              start: data.results?.results_start || 1,
+              shops: data.results?.shop || [],
+            },
+            null,
+            2,
+          ),
+        },
+      ],
     };
-
   } catch (error) {
     // Use handleMcpError for consistent error handling and logging
     handleMcpError(error, 'handleSearchByArea');

@@ -29,12 +29,7 @@ export default defineConfig({
       provider: 'v8',
       reporter: ['text', 'html', 'lcov'],
       // Tweak as needed
-      exclude: [
-        'node_modules/**',
-        'build/**',
-        '**/*.d.ts',
-        '**/__tests__/**',
-      ],
+      exclude: ['node_modules/**', 'build/**', '**/*.d.ts', '**/__tests__/**'],
       // Lines/branches thresholds (adjust to your target)
       // thresholds: { lines: 80, branches: 70, functions: 80, statements: 80 },
     },

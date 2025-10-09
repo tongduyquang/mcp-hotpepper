@@ -1,14 +1,14 @@
 #!/usr/bin/env node
 
-import { createServer } from "./server.js";
-import {config} from "./config.js";
+import { createServer } from './server.js';
+import { config } from './config.js';
 
 // Start the server
 async function app() {
-    if (!config.API_KEY) {
-        throw new Error('API_KEY is not set in the environment variables.');
-    }
-    try {
+  if (!config.API_KEY) {
+    throw new Error('API_KEY is not set in the environment variables.');
+  }
+  try {
     // 2. Create server
     const server = createServer();
 
@@ -17,11 +17,10 @@ async function app() {
 
     // 4. Graceful shutdown (optional, but recommended)
     handleExitSignal(server);
-        
-    } catch (error) {
+  } catch (error) {
     console.error('Error starting server:', error);
     process.exit(1);
-    }
+  }
 }
 
 function handleExitSignal(server: any) {
@@ -29,7 +28,7 @@ function handleExitSignal(server: any) {
     console.log('Received exit signal, shutting down...');
     await server.stop();
     process.exit(0);
-  }
+  };
 
   process.on('SIGINT', exitHandler);
   process.on('SIGTERM', exitHandler);
@@ -38,6 +37,6 @@ function handleExitSignal(server: any) {
 }
 
 app().catch((error) => {
-    console.error('Unhandled error in app:', error);
-    process.exit(1);
+  console.error('Unhandled error in app:', error);
+  process.exit(1);
 });

@@ -1,0 +1,23 @@
+{
+  "results": {
+    "api_version": "1.30",
+    "results_available": 13,
+    "results_returned": "13",
+    "results_start": 1,
+    "special_category": [
+      { "code": "SPD8", "name": "ランチを楽しむ" },
+      { "code": "SPF9", "name": "大人なグルメ" },
+      { "code": "SPG1", "name": "デートにぴったり" },
+      { "code": "SPF8", "name": "おすすめコース" },
+      { "code": "SPG7", "name": "こだわり食材" },
+      { "code": "SPG8", "name": "旬の料理を楽しむ" },
+      { "code": "SPF7", "name": "飲み放題付コース" },
+      { "code": "SPG3", "name": "ママにもやさしい" },
+      { "code": "SPG4", "name": "個室・貸切・設備で探す" },
+      { "code": "SPG5", "name": "特別シーンなら" },
+      { "code": "SPG2", "name": "女性に嬉しい" },
+      { "code": "SPG6", "name": "定番おすすめ" },
+      { "code": "SPG9", "name": "季節のイベント" }
+    ]
+  }
+}

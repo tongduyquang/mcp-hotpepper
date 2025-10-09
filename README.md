@@ -1,13 +1,17 @@
 # MCP HotPepper
 
-A Model Context Protocol (MCP) server for searching Japanese restaurants using the HotPepper Gourmet API. This server provides three comprehensive search tools for finding restaurants by keyword, geographical area, and recommendations.
+A Model Context Protocol (MCP) server for searching Japanese restaurants using
+the HotPepper Gourmet API. This server provides three comprehensive search tools
+for finding restaurants by keyword, geographical area, and recommendations.
 
 ## Features
 
-- 🍜 **Keyword Search**: Search by restaurant name, address, phone number, or keywords
-- 🗾 **Area Search**: Search by geographical regions (service areas, large/middle/small areas)
-- 🏆 **Recommendation Search**: Search by genre, budget, special categories, and features
-- 🔧 **Comprehensive Filters**: Over 30 optional filters for facilities, amenities, and preferences
+- 🍜 **Keyword Search**: Search by restaurant name, address, phone number, or
+  keywords
+- 🗾 **Area Search**: Search by geographical regions (service areas,
+  large/middle/small areas)
+- 🏆 **Recommendation Search**: Search by genre, budget, special categories, and
+  features
 - ✅ **Type Safety**: Full TypeScript support with Zod validation
 - 🛡️ **Error Handling**: Robust error handling and logging
 
@@ -15,23 +19,25 @@ A Model Context Protocol (MCP) server for searching Japanese restaurants using t
 
 - Node.js >= 20.0.0
 - npm or yarn
-- HotPepper Gourmet API key (get it from [HotPepper API](https://webservice.recruit.co.jp/register/))
+- HotPepper Gourmet API key (get it from
+  [HotPepper API](https://webservice.recruit.co.jp/register/))
 
 ## Installation
 
 1. **Clone the repository**
+
    ```bash
    git clone https://github.com/tongduyquang/mcp-hotpepper.git
    cd mcp-hotpepper
    ```
 
 2. **Install dependencies**
+
    ```bash
    npm install
    ```
 
-3. **Set up environment variables**
-   Create a `.env` file in the root directory:
+3. **Set up environment variables** Create a `.env` file in the root directory:
    ```env
    HOTPEPPER_API_KEY=your_api_key_here
    ```
@@ -101,9 +107,9 @@ npm run serve
 
 Add to your Claude Desktop `mcp_settings.json` file:
 
-**Windows**: `%APPDATA%\Claude\mcp_settings.json`
-**macOS**: `~/Library/Application Support/Claude/mcp_settings.json`
-**Linux**: `~/.config/Claude/mcp_settings.json`
+**Windows**: `%APPDATA%\Claude\mcp_settings.json` **macOS**:
+`~/Library/Application Support/Claude/mcp_settings.json` **Linux**:
+`~/.config/Claude/mcp_settings.json`
 
 ```json
 {
@@ -128,6 +134,7 @@ npm run inspector
 ```
 
 This opens a web interface where you can:
+
 - List available tools
 - Test tool calls with different parameters
 - View responses and debug issues
@@ -139,6 +146,7 @@ This opens a web interface where you can:
 Search restaurants by keyword, name, address, phone number, or ID.
 
 **Example usage:**
+
 ```json
 {
   "keyword": "秋吉"
@@ -146,6 +154,7 @@ Search restaurants by keyword, name, address, phone number, or ID.
 ```
 
 **Parameters:**
+
 - `keyword` - Free text search (店名、住所、駅名など)
 - `name` - Restaurant name (partial match)
 - `id` - Restaurant ID (exact match)
@@ -158,6 +167,7 @@ Search restaurants by keyword, name, address, phone number, or ID.
 Search restaurants by geographical area.
 
 **Example usage:**
+
 ```json
 {
   "large_service_area": "SS40",
@@ -167,9 +177,10 @@ Search restaurants by geographical area.
 ```
 
 **Parameters:**
+
 - `large_service_area` - Major service areas (SS10: 関東, SS20: 関西, etc.)
 - `service_area` - Service area codes
-- `large_area` - Large area codes  
+- `large_area` - Large area codes
 - `middle_area` - Middle area codes
 - `small_area` - Small area codes
 - Plus all common optional parameters
@@ -179,6 +190,7 @@ Search restaurants by geographical area.
 Search restaurants by recommendations and categories.
 
 **Example usage:**
+
 ```json
 {
   "genre": "G001",
@@ -187,6 +199,7 @@ Search restaurants by recommendations and categories.
 ```
 
 **Parameters:**
+
 - `genre` - Restaurant genre (G001: 居酒屋, G004: 和食, etc.)
 - `budget` - Price range (B001: 1501～2000円, etc.)
 - `special` - Special feature codes
@@ -198,13 +211,15 @@ Search restaurants by recommendations and categories.
 All search tools support these optional filters:
 
 ### Pagination
+
 - `count` (1-100) - Number of results to return
 - `start` (≥1) - Starting position for results
 - `order` (1-4) - Sort order (1: name kana, 2: genre, 3: area, 4: recommended)
 
 ### Facility Filters (0: no filter, 1: filter)
+
 - `wifi` - WiFi available
-- `private_room` - Private rooms available  
+- `private_room` - Private rooms available
 - `parking` - Parking available
 - `card` - Credit cards accepted
 - `non_smoking` - Non-smoking seats
@@ -213,6 +228,7 @@ All search tools support these optional filters:
 - And 20+ more facility options...
 
 ### Other Filters
+
 - `party_capacity` - Minimum party capacity
 - `credit_card` - Specific credit card types (c01: VISA, c02: Master, etc.)
 - `format` - Response format ('xml' or 'json')
@@ -248,7 +264,7 @@ src/
 ### Adding New Features
 
 1. **Add tool definition** in `src/tools/tools.ts`
-2. **Add validation schema** in `src/tools/schemas.ts`  
+2. **Add validation schema** in `src/tools/schemas.ts`
 3. **Create handler function** in `src/tools/`
 4. **Register handler** in `src/handlers.ts`
 5. **Build and test** with `npm run build && npm run inspector`
@@ -266,11 +282,15 @@ src/
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
+for details.
 
 ## API Reference
 
-This server uses the [HotPepper Gourmet API](https://webservice.recruit.co.jp/doc/hotpepper/reference.html). Please refer to their documentation for detailed parameter descriptions and response formats.
+This server uses the
+[HotPepper Gourmet API](https://webservice.recruit.co.jp/doc/hotpepper/reference.html).
+Please refer to their documentation for detailed parameter descriptions and
+response formats.
 
 ## Troubleshooting
 
@@ -295,6 +315,7 @@ This server uses the [HotPepper Gourmet API](https://webservice.recruit.co.jp/do
 
 ### Getting Help
 
-- Check the [issues page](https://github.com/tongduyquang/mcp-hotpepper/issues) for known problems
+- Check the [issues page](https://github.com/tongduyquang/mcp-hotpepper/issues)
+  for known problems
 - Use `npm run inspector` to test tools interactively
 - Enable debug logging by checking console output when running the server
