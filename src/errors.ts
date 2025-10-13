@@ -2,14 +2,7 @@ import { McpError, ErrorCode } from '@modelcontextprotocol/sdk/types.js';
 import axios from 'axios';
 import { ZodError } from 'zod';
 
-/**
- * Generic error logging utility
- * @param error - The error object to log
- * @param context - Context where the error occurred
- */
-export function logError(error: unknown, context: string): void {
-  console.error(`Error in ${context}:`, error);
-}
+import { consoleLog, consoleError } from './console.js';
 
 /**
  * Generic warning logging utility
@@ -17,7 +10,7 @@ export function logError(error: unknown, context: string): void {
  * @param context - Context where the warning occurred
  */
 export function logWarning(warning: string, context: string): void {
-  console.warn(`Warning in ${context}: ${warning}`);
+  consoleLog(`Warning: ${warning} in ${context}`);
 }
 
 /**
@@ -27,7 +20,7 @@ export function logWarning(warning: string, context: string): void {
  * @returns Transformed error with additional context
  */
 export function handleApiError(error: unknown, context: string): Error {
-  logError(error, context);
+  consoleError(`Error: ${error} in ${context}`);
 
   // Zod validation error handler
   if (error instanceof ZodError) {
@@ -57,7 +50,7 @@ export function handleApiError(error: unknown, context: string): Error {
  * @throws Always throws either the original MCP error or a new internal error
  */
 export function handleMcpError(error: unknown, context: string): never {
-  logError(error, context);
+  consoleError(`MCP Error: ${error} in ${context}`);
 
   // Zod validation error handler for MCP
   if (error instanceof ZodError) {

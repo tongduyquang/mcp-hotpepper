@@ -2,7 +2,7 @@
 
 import { createServer } from './server.js';
 import { config } from './config.js';
-
+import { consoleLog, consoleError } from './console.js';
 // Start the server
 async function app() {
   if (!config.API_KEY) {
@@ -18,14 +18,14 @@ async function app() {
     // 4. Graceful shutdown (optional, but recommended)
     handleExitSignal(server);
   } catch (error) {
-    console.error('Error starting server:', error);
+    consoleError(`Error starting server: ${error}`);
     process.exit(1);
   }
 }
 
 function handleExitSignal(server: any) {
   const exitHandler = async () => {
-    console.log('Received exit signal, shutting down...');
+    consoleLog('Received exit signal, shutting down...');
     await server.stop();
     process.exit(0);
   };
@@ -37,6 +37,6 @@ function handleExitSignal(server: any) {
 }
 
 app().catch((error) => {
-  console.error('Unhandled error in app:', error);
+  consoleError(`Unhandled error in app: ${error}`);
   process.exit(1);
 });

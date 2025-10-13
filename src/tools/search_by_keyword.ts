@@ -2,6 +2,7 @@ import { McpError, ErrorCode } from '@modelcontextprotocol/sdk/types.js';
 import { handleMcpError, handleApiError } from '../errors.js';
 import { SearchGourmetByKeywordInputSchema } from './schemas.js';
 import config from '../config.js';
+import { consoleLog } from '../console.js';
 
 /**
  * Handle search by keyword tool for MCP server
@@ -42,7 +43,7 @@ export async function handleSearchByKeyword(params: any) {
       searchTerms.push(`address: "${validatedParams.address}"`);
 
     const searchDescription = searchTerms.join(', ');
-    console.log(`Searching gourmets with: ${searchDescription}`);
+    consoleLog(`Searching gourmets with: ${searchDescription}`);
 
     // Make the API request
     const response = await fetch(apiUrl.toString());
@@ -67,7 +68,7 @@ export async function handleSearchByKeyword(params: any) {
     }
 
     // Log successful search
-    console.log(
+    consoleLog(
       `Found ${data.results?.results_available || 0} results for: ${searchDescription}`,
     );
 

@@ -9,6 +9,7 @@ import {
   SEARCH_GOURMETS_BY_AREA,
   SEARCH_GOURMETS_BY_RECOMMEND,
 } from './tools/tools.js';
+import { consoleLog } from './console.js';
 
 // import {
 //   SEARCH_CODES_FOR_BUDGET,
@@ -30,7 +31,9 @@ export async function handleToolCall(
   toolName: string,
   toolArgs: any,
 ): Promise<any> {
-  console.log(`Handling tool call for: ${toolName} with params:`, toolArgs);
+  consoleLog(
+    `Handling tool call for: ${toolName} with params: ${JSON.stringify(toolArgs)}`,
+  );
   // Dispatch based on tool name
   switch (toolName) {
     case SEARCH_GOURMETS_BY_KEYWORD.name:

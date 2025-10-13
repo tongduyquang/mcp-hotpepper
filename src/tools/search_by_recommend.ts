@@ -2,6 +2,7 @@ import { McpError, ErrorCode } from '@modelcontextprotocol/sdk/types.js';
 import { handleMcpError, handleApiError } from '../errors.js';
 import { SearchGourmetsByRecommendInputSchema } from './schemas.js';
 import config from '../config.js';
+import { consoleLog } from '../console.js';
 
 /**
  * Handle search by recommendation tool for MCP server
@@ -52,7 +53,7 @@ export async function handleSearchByRecommend(params: any) {
       );
 
     const searchParams = searchTerms.join(', ');
-    console.log(`Searching gourmets by recommendation: ${searchParams}`);
+    consoleLog(`Searching gourmets by recommendation: ${searchParams}`);
 
     // Make the API request
     const response = await fetch(apiUrl.toString());
@@ -77,7 +78,7 @@ export async function handleSearchByRecommend(params: any) {
     }
 
     // Log successful search
-    console.log(
+    consoleLog(
       `Found ${data.results?.results_available || 0} results for recommendation search: ${searchParams}`,
     );
 

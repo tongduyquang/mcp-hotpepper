@@ -2,6 +2,7 @@ import { McpError, ErrorCode } from '@modelcontextprotocol/sdk/types.js';
 import { handleMcpError, handleApiError } from '../errors.js';
 import { SearchGourmetsByAreaInputSchema } from './schemas.js';
 import config from '../config.js';
+import { consoleLog } from '../console.js';
 
 /**
  * Handle search by area tool for MCP server
@@ -46,7 +47,7 @@ export async function handleSearchByArea(params: any) {
       searchTerms.push(`small_area: ${validatedParams.small_area}`);
 
     const searchParams = searchTerms.join(', ');
-    console.log(`Searching gourmets by area: ${searchParams}`);
+    consoleLog(`Searching gourmets by area: ${searchParams}`);
 
     // Make the API request
     const response = await fetch(apiUrl.toString());
@@ -71,7 +72,7 @@ export async function handleSearchByArea(params: any) {
     }
 
     // Log successful search
-    console.log(
+    consoleLog(
       `Found ${data.results?.results_available || 0} results for area search: ${searchParams}`,
     );
 

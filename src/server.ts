@@ -10,7 +10,7 @@ import {
 import { handleToolCall } from './handlers.js'; // , handleListResources, handleReadResource
 import { TOOLS } from './tools/tools.js';
 import { handleMcpError } from './errors.js';
-
+import { consoleLog, consoleError } from './console.js';
 export function createServer() {
   const server = new Server(
     {
@@ -34,18 +34,18 @@ export function createServer() {
     start: async () => {
       try {
         await server.connect(transport);
-        console.log('Hotpepper MCP server running on stdio');
+        consoleLog('Hotpepper MCP server running on stdio');
       } catch (error) {
-        console.error('Server error:', error);
+        consoleError(`Server error: ${error}`);
         throw error;
       }
     },
     stop: async () => {
       try {
         await server.close();
-        console.log('Server disconnected');
+        consoleLog('Server disconnected');
       } catch (error) {
-        console.error('Error during server shutdown:', error);
+        consoleError(`Error during server shutdown: ${error}`);
         throw error;
       }
     },

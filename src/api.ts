@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { config } from './config.js';
 import { handleApiError } from './errors.js';
-
+import { consoleLog } from './console.js';
 // Create axios instance with default configuration
 const apiClient = axios.create({
   baseURL: config.BASE_URL,
@@ -17,13 +17,15 @@ export async function fetchData(
 ): Promise<any> {
   const url = `${config.BASE_URL}${endpoint}`;
 
-  console.log(`Fetching data from URL: ${url} with params:`, params);
+  consoleLog(
+    `Fetching data from URL: ${url} with params: ${JSON.stringify(params)}`,
+  );
   try {
     const response = await apiClient.get(endpoint, {
       params: { ...params, key: config.API_KEY },
     });
 
-    console.log('Fetched data successfully!');
+    consoleLog('Fetched data successfully!');
     return response.data;
   } catch (error) {
     throw handleApiError(error, 'fetchData');
