@@ -1,5 +1,9 @@
 import { McpError, ErrorCode } from '@modelcontextprotocol/sdk/types.js';
-import { handleMcpError, handleApiError } from '../errors.js';
+import {
+  handleMcpError,
+  handleApiError,
+  checkHotPepperApiResponse,
+} from '../errors.js';
 import { SearchGourmetsByRecommendInputSchema } from './schemas.js';
 import config from '../config.js';
 import { consoleLog } from '../console.js';
@@ -69,10 +73,19 @@ export async function handleSearchByRecommend(params: any) {
     const data = await response.json();
 
     // Handle API errors from HotPepper
-    if (data.results?.error) {
+    // if (data.results?.error) {
+    //   const apiError = handleApiError(
+    //     data.results.error,
+    //     'handleSearchByRecommend HotPepper API',
+    //   );
+    //   throw new McpError(ErrorCode.InternalError, apiError.message);
+    // }
+    // Handle API errors from HotPepper - Enhanced with checkHotPepperApiResponse
+    const hotpepperError = checkHotPepperApiResponse(data);
+    if (hotpepperError) {
       const apiError = handleApiError(
-        data.results.error,
-        'handleSearchByRecommend HotPepper API',
+        hotpepperError,
+        'handleSearchByKeyword HotPepper API',
       );
       throw new McpError(ErrorCode.InternalError, apiError.message);
     }

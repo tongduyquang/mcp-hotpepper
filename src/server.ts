@@ -7,10 +7,9 @@ import {
   ListToolsRequestSchema,
 } from '@modelcontextprotocol/sdk/types.js';
 
-import { handleToolCall } from './handlers.js'; // , handleListResources, handleReadResource
-import { TOOLS } from './tools/tools.js';
+import { handleToolCall, handleToolsList } from './handlers.js'; // , handleListResources, handleReadResource
 import { handleMcpError } from './errors.js';
-import { consoleLog, consoleError } from './console.js';
+
 export function createServer() {
   const server = new Server(
     {
@@ -34,18 +33,18 @@ export function createServer() {
     start: async () => {
       try {
         await server.connect(transport);
-        consoleLog('Hotpepper MCP server running on stdio');
+        console.log('Hotpepper MCP server running on stdio');
       } catch (error) {
-        consoleError(`Server error: ${error}`);
+        console.error('Server error:', error);
         throw error;
       }
     },
     stop: async () => {
       try {
         await server.close();
-        consoleLog('Server disconnected');
+        console.log('Server disconnected');
       } catch (error) {
-        consoleError(`Error during server shutdown: ${error}`);
+        console.error('Error during server shutdown:', error);
         throw error;
       }
     },
@@ -67,6 +66,16 @@ function setupRequestHandlers(server: Server) {
       return handleMcpError(error, 'CallToolRequest');
     }
   });
+
+  // Handle listing tools
+  server.setRequestHandler(ListToolsRequestSchema, async () => {
+    try {
+      return await handleToolsList();
+    } catch (error) {
+      return handleMcpError(error, 'ListToolsRequest');
+    }
+  });
+
   // Handle listing resources
   // server.setRequestHandler(ListResourcesRequestSchema, async (request) => {
   //   try {
@@ -75,14 +84,7 @@ function setupRequestHandlers(server: Server) {
   //     return handleMcpError(error, 'ListResourcesRequest');
   //   }
   // });
-  // Handle listing tools
-  server.setRequestHandler(ListToolsRequestSchema, async () => {
-    try {
-      return { tools: TOOLS }; // TODO: Implement tool listing
-    } catch (error) {
-      return handleMcpError(error, 'ListToolsRequest');
-    }
-  });
+
   // Handle reading a resource
   // server.setRequestHandler(ReadResourceRequestSchema, async (request) => {
 

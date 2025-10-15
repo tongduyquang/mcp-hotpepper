@@ -130,44 +130,8 @@ export const SearchGourmetsByAreaInputSchema =
 export const SearchGourmetsByRecommendInputSchema =
   CommonOptionalParamsSchema.extend({
     // Recommendation parameters
-    genre: z
-      .enum([
-        'G001',
-        'G002',
-        'G003',
-        'G004',
-        'G005',
-        'G006',
-        'G007',
-        'G008',
-        'G017',
-        'G009',
-        'G010',
-        'G011',
-        'G012',
-        'G013',
-        'G016',
-        'G014',
-        'G015',
-      ])
-      .optional(),
-    budget: z
-      .enum([
-        'B009',
-        'B010',
-        'B011',
-        'B001',
-        'B002',
-        'B003',
-        'B008',
-        'B004',
-        'B005',
-        'B006',
-        'B012',
-        'B013',
-        'B014',
-      ])
-      .optional(),
+    genre: z.string().optional(),
+    budget: z.string().optional(),
     special: z.string().optional(),
     special_or: z.string().optional(),
     special_category: z.string().optional(),

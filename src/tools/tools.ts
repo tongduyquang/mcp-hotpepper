@@ -21,7 +21,7 @@ import { Tool } from '@modelcontextprotocol/sdk/types.js';
  */
 
 // Reusable parameter schemas
-export const COMMON_OPTIONAL_PARAMS = {
+export const OPTIONAL_PARAMS = {
   // Optional parameters
   // Additional filters
   party_capacity: {
@@ -321,7 +321,7 @@ export const SEARCH_GOURMETS_BY_KEYWORD: Tool = {
         description:
           '店名かな、店名、住所、駅名、お店ジャンルキャッチ、キャッチーのフリーワード検索可能です。(部分一致、UTF8、半角スペース区切りの文字列でAND検索)',
       },
-      ...COMMON_OPTIONAL_PARAMS,
+      ...OPTIONAL_PARAMS,
     },
     // At least one primary search parameter is required
     anyOf: [
@@ -397,7 +397,7 @@ export const SEARCH_GOURMETS_BY_AREA: Tool = {
       //   description: '緯度・経度の測地系を指定できます。world: 世界測地系、tokyo: 旧日本測地系。初期値は world',
       //   enum: ['world', 'tokyo']
       // },
-      ...COMMON_OPTIONAL_PARAMS,
+      ...OPTIONAL_PARAMS,
     },
     // At least one primary search parameter is required
     anyOf: [
@@ -423,47 +423,13 @@ export const SEARCH_GOURMETS_BY_RECOMMEND: Tool = {
       genre: {
         type: 'string',
         description:
-          'お店のジャンルで絞込むことができます。(G001:居酒屋, G002:ダイニングバー・バル, G003:創作料理, G004:和食, G005:洋食, G006:イタリアン・フレンチ, G007:中華, G008:焼肉・ホルモン, G017:韓国料理, G009:アジア・エスニック料理, G010:各国料理, G011:カラオケ・パーティ, G012:バー・カクテル, G013:ラーメン, G016:お好み焼き・もんじゃ, G014:カフェ・スイーツ, G015:その他グルメ)',
-        enum: [
-          'G001',
-          'G002',
-          'G003',
-          'G004',
-          'G005',
-          'G006',
-          'G007',
-          'G008',
-          'G017',
-          'G009',
-          'G010',
-          'G011',
-          'G012',
-          'G013',
-          'G016',
-          'G014',
-          'G015',
-        ],
+          'お店のジャンルで絞込むことができます。複数指定可能 (key=value1,value2,...) Call tool search_codes_for_genre to get latest available codes with names',
       },
       // Budget filter
       budget: {
         type: 'string',
         description:
-          'ディナー予算で絞り込むことができます。複数指定可能 (key=value1,value2,...) (B009: ～500円, B010: 501～1000円, B011: 1001～1500円, B001: 1501～2000円, B002: 2001～3000円, B003: 3001～4000円, B008: 4001～5000円, B004: 5001～7000円, B005: 7001～10000円, B006: 10001～15000円, B012: 15001～20000円, B013: 20001～30000円, B014: 30001円～)',
-        enum: [
-          'B009',
-          'B010',
-          'B011',
-          'B001',
-          'B002',
-          'B003',
-          'B008',
-          'B004',
-          'B005',
-          'B006',
-          'B012',
-          'B013',
-          'B014',
-        ],
+          'ディナー予算で絞り込むことができます。複数指定可能 (key=value1,value2,...) Call tool search_codes_for_budget to get latest available codes with names',
         maxLength: 2,
       },
 
@@ -471,28 +437,35 @@ export const SEARCH_GOURMETS_BY_RECOMMEND: Tool = {
       special: {
         type: 'string',
         description:
-          '特集コードをANDで絞り込みができます。特集コードは特集マスタAPI参照。複数指定可能 (key=value1,value2,...)',
+          '特集コードをANDで絞り込みができます。複数指定可能 (key=value1,value2,...) Call tool search_codes_for_special to get latest available codes with names',
       },
       special_or: {
         type: 'string',
         description:
-          '特集コードをORで絞り込みができます。特集コードは特集マスタAPI参照。複数指定可能です。 (key=value1,value2,...)',
+          '特集コードをORで絞り込みができます。複数指定可能です。 (key=value1,value2,...) Call tool search_codes_for_special to get latest available codes with names',
       },
       special_category: {
         type: 'string',
         description:
-          '特集カテゴリコードをANDで絞り込みができます。特集カテゴリコードは特集カテゴリマスタAPI参照。複数指定可能です。 (key=value1,value2,...)',
+          '特集カテゴリコードをANDで絞り込みができます。複数指定可能です。 (key=value1,value2,...) Call tool search_codes_for_special_category to get latest available codes with names',
       },
       special_category_or: {
         type: 'string',
         description:
-          '特集カテゴリコードをORで絞り込みができます。特集カテゴリコードは特集カテゴリマスタAPI参照。複数指定可能です。 (key=value1,value2,...)',
+          '特集カテゴリコードをORで絞り込みができます。複数指定可能です。 (key=value1,value2,...) Call tool search_codes_for_special_category to get latest available codes with names',
       },
 
-      ...COMMON_OPTIONAL_PARAMS,
+      ...OPTIONAL_PARAMS,
     },
     // At least one primary search parameter is required
-    anyOf: [{ required: ['special'] }, { required: ['special_or'] }],
+    anyOf: [
+      { required: ['genre'] },
+      { required: ['budget'] },
+      { required: ['special'] },
+      { required: ['special_or'] },
+      { required: ['special_category'] },
+      { required: ['special_category_or'] },
+    ],
   },
 };
 

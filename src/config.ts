@@ -22,6 +22,10 @@ export const config = {
     LARGE_AREA: '/large_area/v1/',
     MIDDLE_AREA: '/middle_area/v1/',
     SMALL_AREA: '/small_area/v1/',
+    GENRE: '/genre/v1/',
+    SPECIAL: '/special/v1/',
+    SPECIAL_CATEGORY: '/special_category/v1/',
+    CREDIT_CARD: '/credit_card/v1/',
   },
 } as const;
 
