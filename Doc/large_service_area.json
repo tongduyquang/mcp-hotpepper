@@ -1,0 +1,46 @@
+{
+  "results": {
+    "api_version": "1.30",
+    "results_available": "9",
+    "results_returned": "9",
+    "results_start": "1",
+    "large_service_area": [
+      {
+        "code": "SS10",
+        "name": "関東"
+      },
+      {
+        "code": "SS20",
+        "name": "関西"
+      },
+      {
+        "code": "SS30",
+        "name": "東海"
+      },
+      {
+        "code": "SS40",
+        "name": "北海道"
+      },
+      {
+        "code": "SS50",
+        "name": "東北"
+      },
+      {
+        "code": "SS60",
+        "name": "北陸・甲信越"
+      },
+      {
+        "code": "SS70",
+        "name": "中国"
+      },
+      {
+        "code": "SS80",
+        "name": "四国"
+      },
+      {
+        "code": "SS90",
+        "name": "九州・沖縄"
+      }
+    ]
+  }
+}

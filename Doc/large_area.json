@@ -1,0 +1,574 @@
+{
+  "results": {
+    "api_version": "1.30",
+    "results_available": "47",
+    "results_returned": "47",
+    "results_start": "1",
+    "large_area": [
+      {
+        "code": "Z011",
+        "name": "東京",
+        "service_area": {
+          "code": "SA11",
+          "name": "東京"
+        },
+        "large_service_area": {
+          "code": "SS10",
+          "name": "関東"
+        }
+      },
+      {
+        "code": "Z012",
+        "name": "神奈川",
+        "service_area": {
+          "code": "SA12",
+          "name": "神奈川"
+        },
+        "large_service_area": {
+          "code": "SS10",
+          "name": "関東"
+        }
+      },
+      {
+        "code": "Z013",
+        "name": "埼玉",
+        "service_area": {
+          "code": "SA13",
+          "name": "埼玉"
+        },
+        "large_service_area": {
+          "code": "SS10",
+          "name": "関東"
+        }
+      },
+      {
+        "code": "Z014",
+        "name": "千葉",
+        "service_area": {
+          "code": "SA14",
+          "name": "千葉"
+        },
+        "large_service_area": {
+          "code": "SS10",
+          "name": "関東"
+        }
+      },
+      {
+        "code": "Z015",
+        "name": "茨城",
+        "service_area": {
+          "code": "SA15",
+          "name": "茨城"
+        },
+        "large_service_area": {
+          "code": "SS10",
+          "name": "関東"
+        }
+      },
+      {
+        "code": "Z016",
+        "name": "栃木",
+        "service_area": {
+          "code": "SA16",
+          "name": "栃木"
+        },
+        "large_service_area": {
+          "code": "SS10",
+          "name": "関東"
+        }
+      },
+      {
+        "code": "Z017",
+        "name": "群馬",
+        "service_area": {
+          "code": "SA17",
+          "name": "群馬"
+        },
+        "large_service_area": {
+          "code": "SS10",
+          "name": "関東"
+        }
+      },
+      {
+        "code": "Z021",
+        "name": "滋賀",
+        "service_area": {
+          "code": "SA21",
+          "name": "滋賀"
+        },
+        "large_service_area": {
+          "code": "SS20",
+          "name": "関西"
+        }
+      },
+      {
+        "code": "Z022",
+        "name": "京都",
+        "service_area": {
+          "code": "SA22",
+          "name": "京都"
+        },
+        "large_service_area": {
+          "code": "SS20",
+          "name": "関西"
+        }
+      },
+      {
+        "code": "Z023",
+        "name": "大阪",
+        "service_area": {
+          "code": "SA23",
+          "name": "大阪"
+        },
+        "large_service_area": {
+          "code": "SS20",
+          "name": "関西"
+        }
+      },
+      {
+        "code": "Z024",
+        "name": "兵庫",
+        "service_area": {
+          "code": "SA24",
+          "name": "兵庫"
+        },
+        "large_service_area": {
+          "code": "SS20",
+          "name": "関西"
+        }
+      },
+      {
+        "code": "Z025",
+        "name": "奈良",
+        "service_area": {
+          "code": "SA25",
+          "name": "奈良"
+        },
+        "large_service_area": {
+          "code": "SS20",
+          "name": "関西"
+        }
+      },
+      {
+        "code": "Z026",
+        "name": "和歌山",
+        "service_area": {
+          "code": "SA26",
+          "name": "和歌山"
+        },
+        "large_service_area": {
+          "code": "SS20",
+          "name": "関西"
+        }
+      },
+      {
+        "code": "Z031",
+        "name": "岐阜",
+        "service_area": {
+          "code": "SA31",
+          "name": "岐阜"
+        },
+        "large_service_area": {
+          "code": "SS30",
+          "name": "東海"
+        }
+      },
+      {
+        "code": "Z032",
+        "name": "静岡",
+        "service_area": {
+          "code": "SA32",
+          "name": "静岡"
+        },
+        "large_service_area": {
+          "code": "SS30",
+          "name": "東海"
+        }
+      },
+      {
+        "code": "Z033",
+        "name": "愛知",
+        "service_area": {
+          "code": "SA33",
+          "name": "愛知"
+        },
+        "large_service_area": {
+          "code": "SS30",
+          "name": "東海"
+        }
+      },
+      {
+        "code": "Z034",
+        "name": "三重",
+        "service_area": {
+          "code": "SA34",
+          "name": "三重"
+        },
+        "large_service_area": {
+          "code": "SS30",
+          "name": "東海"
+        }
+      },
+      {
+        "code": "Z041",
+        "name": "北海道",
+        "service_area": {
+          "code": "SA41",
+          "name": "北海道"
+        },
+        "large_service_area": {
+          "code": "SS40",
+          "name": "北海道"
+        }
+      },
+      {
+        "code": "Z051",
+        "name": "青森",
+        "service_area": {
+          "code": "SA51",
+          "name": "青森"
+        },
+        "large_service_area": {
+          "code": "SS50",
+          "name": "東北"
+        }
+      },
+      {
+        "code": "Z052",
+        "name": "岩手",
+        "service_area": {
+          "code": "SA52",
+          "name": "岩手"
+        },
+        "large_service_area": {
+          "code": "SS50",
+          "name": "東北"
+        }
+      },
+      {
+        "code": "Z053",
+        "name": "宮城",
+        "service_area": {
+          "code": "SA53",
+          "name": "宮城"
+        },
+        "large_service_area": {
+          "code": "SS50",
+          "name": "東北"
+        }
+      },
+      {
+        "code": "Z054",
+        "name": "秋田",
+        "service_area": {
+          "code": "SA54",
+          "name": "秋田"
+        },
+        "large_service_area": {
+          "code": "SS50",
+          "name": "東北"
+        }
+      },
+      {
+        "code": "Z055",
+        "name": "山形",
+        "service_area": {
+          "code": "SA55",
+          "name": "山形"
+        },
+        "large_service_area": {
+          "code": "SS50",
+          "name": "東北"
+        }
+      },
+      {
+        "code": "Z056",
+        "name": "福島",
+        "service_area": {
+          "code": "SA56",
+          "name": "福島"
+        },
+        "large_service_area": {
+          "code": "SS50",
+          "name": "東北"
+        }
+      },
+      {
+        "code": "Z061",
+        "name": "新潟",
+        "service_area": {
+          "code": "SA61",
+          "name": "新潟"
+        },
+        "large_service_area": {
+          "code": "SS60",
+          "name": "北陸・甲信越"
+        }
+      },
+      {
+        "code": "Z062",
+        "name": "富山",
+        "service_area": {
+          "code": "SA62",
+          "name": "富山"
+        },
+        "large_service_area": {
+          "code": "SS60",
+          "name": "北陸・甲信越"
+        }
+      },
+      {
+        "code": "Z063",
+        "name": "石川",
+        "service_area": {
+          "code": "SA63",
+          "name": "石川"
+        },
+        "large_service_area": {
+          "code": "SS60",
+          "name": "北陸・甲信越"
+        }
+      },
+      {
+        "code": "Z064",
+        "name": "福井",
+        "service_area": {
+          "code": "SA64",
+          "name": "福井"
+        },
+        "large_service_area": {
+          "code": "SS60",
+          "name": "北陸・甲信越"
+        }
+      },
+      {
+        "code": "Z065",
+        "name": "山梨",
+        "service_area": {
+          "code": "SA65",
+          "name": "山梨"
+        },
+        "large_service_area": {
+          "code": "SS60",
+          "name": "北陸・甲信越"
+        }
+      },
+      {
+        "code": "Z066",
+        "name": "長野",
+        "service_area": {
+          "code": "SA66",
+          "name": "長野"
+        },
+        "large_service_area": {
+          "code": "SS60",
+          "name": "北陸・甲信越"
+        }
+      },
+      {
+        "code": "Z071",
+        "name": "鳥取",
+        "service_area": {
+          "code": "SA71",
+          "name": "鳥取"
+        },
+        "large_service_area": {
+          "code": "SS70",
+          "name": "中国"
+        }
+      },
+      {
+        "code": "Z072",
+        "name": "島根",
+        "service_area": {
+          "code": "SA72",
+          "name": "島根"
+        },
+        "large_service_area": {
+          "code": "SS70",
+          "name": "中国"
+        }
+      },
+      {
+        "code": "Z073",
+        "name": "岡山",
+        "service_area": {
+          "code": "SA73",
+          "name": "岡山"
+        },
+        "large_service_area": {
+          "code": "SS70",
+          "name": "中国"
+        }
+      },
+      {
+        "code": "Z074",
+        "name": "広島",
+        "service_area": {
+          "code": "SA74",
+          "name": "広島"
+        },
+        "large_service_area": {
+          "code": "SS70",
+          "name": "中国"
+        }
+      },
+      {
+        "code": "Z075",
+        "name": "山口",
+        "service_area": {
+          "code": "SA75",
+          "name": "山口"
+        },
+        "large_service_area": {
+          "code": "SS70",
+          "name": "中国"
+        }
+      },
+      {
+        "code": "Z081",
+        "name": "徳島",
+        "service_area": {
+          "code": "SA81",
+          "name": "徳島"
+        },
+        "large_service_area": {
+          "code": "SS80",
+          "name": "四国"
+        }
+      },
+      {
+        "code": "Z082",
+        "name": "香川",
+        "service_area": {
+          "code": "SA82",
+          "name": "香川"
+        },
+        "large_service_area": {
+          "code": "SS80",
+          "name": "四国"
+        }
+      },
+      {
+        "code": "Z083",
+        "name": "愛媛",
+        "service_area": {
+          "code": "SA83",
+          "name": "愛媛"
+        },
+        "large_service_area": {
+          "code": "SS80",
+          "name": "四国"
+        }
+      },
+      {
+        "code": "Z084",
+        "name": "高知",
+        "service_area": {
+          "code": "SA84",
+          "name": "高知"
+        },
+        "large_service_area": {
+          "code": "SS80",
+          "name": "四国"
+        }
+      },
+      {
+        "code": "Z091",
+        "name": "福岡",
+        "service_area": {
+          "code": "SA91",
+          "name": "福岡"
+        },
+        "large_service_area": {
+          "code": "SS90",
+          "name": "九州・沖縄"
+        }
+      },
+      {
+        "code": "Z092",
+        "name": "佐賀",
+        "service_area": {
+          "code": "SA92",
+          "name": "佐賀"
+        },
+        "large_service_area": {
+          "code": "SS90",
+          "name": "九州・沖縄"
+        }
+      },
+      {
+        "code": "Z093",
+        "name": "長崎",
+        "service_area": {
+          "code": "SA93",
+          "name": "長崎"
+        },
+        "large_service_area": {
+          "code": "SS90",
+          "name": "九州・沖縄"
+        }
+      },
+      {
+        "code": "Z094",
+        "name": "熊本",
+        "service_area": {
+          "code": "SA94",
+          "name": "熊本"
+        },
+        "large_service_area": {
+          "code": "SS90",
+          "name": "九州・沖縄"
+        }
+      },
+      {
+        "code": "Z095",
+        "name": "大分",
+        "service_area": {
+          "code": "SA95",
+          "name": "大分"
+        },
+        "large_service_area": {
+          "code": "SS90",
+          "name": "九州・沖縄"
+        }
+      },
+      {
+        "code": "Z096",
+        "name": "宮崎",
+        "service_area": {
+          "code": "SA96",
+          "name": "宮崎"
+        },
+        "large_service_area": {
+          "code": "SS90",
+          "name": "九州・沖縄"
+        }
+      },
+      {
+        "code": "Z097",
+        "name": "鹿児島",
+        "service_area": {
+          "code": "SA97",
+          "name": "鹿児島"
+        },
+        "large_service_area": {
+          "code": "SS90",
+          "name": "九州・沖縄"
+        }
+      },
+      {
+        "code": "Z098",
+        "name": "沖縄",
+        "service_area": {
+          "code": "SA98",
+          "name": "沖縄"
+        },
+        "large_service_area": {
+          "code": "SS90",
+          "name": "九州・沖縄"
+        }
+      }
+    ]
+  }
+}

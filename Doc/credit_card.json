@@ -1,0 +1,38 @@
+{
+  "results": {
+    "api_version": "1.30",
+    "results_available": "7",
+    "results_returned": "7",
+    "results_start": "1",
+    "credit_card": [
+      {
+        "code": "c01",
+        "name": "VISA"
+      },
+      {
+        "code": "c02",
+        "name": "マスター"
+      },
+      {
+        "code": "c04",
+        "name": "アメックス"
+      },
+      {
+        "code": "c06",
+        "name": "DINERS"
+      },
+      {
+        "code": "c07",
+        "name": "JCB"
+      },
+      {
+        "code": "c11",
+        "name": "銀聯"
+      },
+      {
+        "code": "c12",
+        "name": "Discover"
+      }
+    ]
+  }
+}
