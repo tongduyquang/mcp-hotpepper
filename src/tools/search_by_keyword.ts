@@ -47,7 +47,7 @@ export async function handleSearchByKeyword(params: any) {
       searchTerms.push(`address: "${validatedParams.address}"`);
 
     const searchDescription = searchTerms.join(', ');
-    consoleLog(`Searching gourmets with: ${searchDescription}`);
+    //consoleLog(`Searching gourmets with: ${searchDescription}`);
 
     // Make the API request
     const response = await fetch(apiUrl.toString());
@@ -81,9 +81,9 @@ export async function handleSearchByKeyword(params: any) {
     }
 
     // Log successful search
-    consoleLog(
-      `Found ${data.results?.results_available || 0} results for: ${searchDescription}`,
-    );
+    //consoleLog(
+    //   `Found ${data.results?.results_available || 0} results for: ${searchDescription}`,
+    // );
 
     // Return structured results
     return {

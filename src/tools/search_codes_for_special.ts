@@ -19,7 +19,7 @@ export async function handleSearchCodesForSpecial() {
     apiUrl.searchParams.set('key', config.API_KEY || '');
     apiUrl.searchParams.set('format', 'json');
 
-    consoleLog('Fetching special codes from HotPepper API');
+    //consoleLog('Fetching special codes from HotPepper API');
 
     // Make the API request
     const response = await fetch(apiUrl.toString());
@@ -54,7 +54,7 @@ export async function handleSearchCodesForSpecial() {
 
     // Log successful retrieval
     const specialCount = data.results?.special?.length || 0;
-    consoleLog(`Retrieved ${specialCount} special codes`);
+    //consoleLog(`Retrieved ${specialCount} special codes`);
 
     // Format the special data for easy reference
     const specialCodes = (data.results?.special || []).map((item: any) => ({

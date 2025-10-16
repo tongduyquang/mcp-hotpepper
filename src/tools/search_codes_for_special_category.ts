@@ -21,7 +21,7 @@ export async function handleSearchCodesForSpecialCategory() {
     apiUrl.searchParams.set('key', config.API_KEY || '');
     apiUrl.searchParams.set('format', 'json');
 
-    consoleLog('Fetching special category codes from HotPepper API');
+    //consoleLog('Fetching special category codes from HotPepper API');
 
     // Make the API request
     const response = await fetch(apiUrl.toString());
@@ -56,7 +56,7 @@ export async function handleSearchCodesForSpecialCategory() {
 
     // Log successful retrieval
     const specialCategoryCount = data.results?.special_category?.length || 0;
-    consoleLog(`Retrieved ${specialCategoryCount} special category codes`);
+    //consoleLog(`Retrieved ${specialCategoryCount} special category codes`);
 
     // Format the special category data for easy reference
     const specialCategoryCodes = (data.results?.special_category || []).map(

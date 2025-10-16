@@ -19,7 +19,7 @@ export async function handleSearchCodesForGenre() {
     apiUrl.searchParams.set('key', config.API_KEY || '');
     apiUrl.searchParams.set('format', 'json');
 
-    consoleLog('Fetching genre codes from HotPepper API');
+    //consoleLog('Fetching genre codes from HotPepper API');
 
     // Make the API request
     const response = await fetch(apiUrl.toString());
@@ -54,7 +54,7 @@ export async function handleSearchCodesForGenre() {
 
     // Log successful retrieval
     const genreCount = data.results?.genre?.length || 0;
-    consoleLog(`Retrieved ${genreCount} genre codes`);
+    //consoleLog(`Retrieved ${genreCount} genre codes`);
 
     // Format the genre data for easy reference
     const genreCodes = (data.results?.genre || []).map((item: any) => ({

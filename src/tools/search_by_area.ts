@@ -51,7 +51,7 @@ export async function handleSearchByArea(params: any) {
       searchTerms.push(`small_area: ${validatedParams.small_area}`);
 
     const searchParams = searchTerms.join(', ');
-    consoleLog(`Searching gourmets by area: ${searchParams}`);
+    //consoleLog(`Searching gourmets by area: ${searchParams}`);
 
     // Make the API request
     const response = await fetch(apiUrl.toString());
@@ -85,9 +85,9 @@ export async function handleSearchByArea(params: any) {
     }
 
     // Log successful search
-    consoleLog(
-      `Found ${data.results?.results_available || 0} results for area search: ${searchParams}`,
-    );
+    //consoleLog(
+    //   `Found ${data.results?.results_available || 0} results for area search: ${searchParams}`,
+    // );
 
     // Return structured results
     return {

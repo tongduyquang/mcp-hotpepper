@@ -13,7 +13,7 @@ import {
   SEARCH_GOURMETS_BY_AREA,
   SEARCH_GOURMETS_BY_RECOMMEND,
 } from './tools/tools.js';
-import { consoleLog } from './console.js';
+// import { consoleLog } from './console.js';
 
 import {
   SEARCH_CODES_FOR_BUDGET,
@@ -26,7 +26,7 @@ import {
   // SEARCH_CODES_FOR_LARGE_AREA,
   // SEARCH_CODES_FOR_MIDDLE_AREA,
   // SEARCH_CODES_FOR_SMALL_AREA,
- } from './tools/master-tools.js';
+} from './tools/master-tools.js';
 
 /**
  * Dispatch tools on request
@@ -35,9 +35,9 @@ export async function handleToolCall(
   toolName: string,
   toolArgs: any,
 ): Promise<any> {
-  consoleLog(
-    `Handling tool call for: ${toolName} with params: ${JSON.stringify(toolArgs)}`,
-  );
+  //consoleLog(
+  //   `Handling tool call for: ${toolName} with params: ${JSON.stringify(toolArgs)}`,
+  // );
   // Dispatch based on tool name
   switch (toolName) {
     case SEARCH_GOURMETS_BY_KEYWORD.name:

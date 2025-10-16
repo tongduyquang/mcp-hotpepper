@@ -2,7 +2,7 @@ import { McpError, ErrorCode } from '@modelcontextprotocol/sdk/types.js';
 import axios from 'axios';
 import { ZodError } from 'zod';
 
-import { consoleError } from './console.js';
+// import { consoleError } from './console.js';
 
 /**
  * Handle and transform API errors for the data layer with HotPepper-specific error handling
@@ -11,7 +11,7 @@ import { consoleError } from './console.js';
  * @returns Transformed error with additional context and HotPepper error codes
  */
 export function handleApiError(error: unknown, context: string): Error {
-  consoleError(`Error: ${error} in ${context}`);
+  //consoleError(`Error: ${error} in ${context}`);
 
   // Handle HotPepper API specific errors (comes as response data, not HTTP error)
   if (isHotPepperApiError(error)) {
@@ -135,7 +135,7 @@ export function checkHotPepperApiResponse(
  * @throws Always throws either the original MCP error or a new internal error
  */
 export function handleMcpError(error: unknown, context: string): never {
-  consoleError(`MCP Error: ${error} in ${context}`);
+  //consoleError(`MCP Error: ${error} in ${context}`);
 
   // Zod validation error handler for MCP
   if (error instanceof ZodError) {

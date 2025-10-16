@@ -25,7 +25,7 @@ async function app() {
 
 function handleExitSignal(server: any) {
   const exitHandler = async () => {
-    consoleLog('Received exit signal, shutting down...');
+    //consoleLog('Received exit signal, shutting down...');
     await server.stop();
     process.exit(0);
   };

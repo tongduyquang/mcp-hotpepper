@@ -1,7 +1,7 @@
 import dotenv from 'dotenv';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { consoleError } from './console.js';
+// import { consoleError } from './console.js';
 
 // Get __dirname equivalent for ES modules
 const __filename = fileURLToPath(import.meta.url);
@@ -31,7 +31,7 @@ export const config = {
 
 // Ensure the API key is provided
 if (!config.API_KEY) {
-  consoleError('API_KEY is not defined in environment variables');
+  //consoleError('API_KEY is not defined in environment variables');
   throw new Error(
     'API_KEY is not defined in environment variables. Get your API key at: https://webservice.recruit.co.jp/doc/hotpepper/',
   );

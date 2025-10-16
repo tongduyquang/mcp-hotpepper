@@ -19,7 +19,7 @@ export async function handleSearchCodesForBudget() {
     apiUrl.searchParams.set('key', config.API_KEY || '');
     apiUrl.searchParams.set('format', 'json');
 
-    consoleLog('Fetching budget codes from HotPepper API');
+    //consoleLog('Fetching budget codes from HotPepper API');
 
     // Make the API request
     const response = await fetch(apiUrl.toString());
@@ -54,7 +54,7 @@ export async function handleSearchCodesForBudget() {
 
     // Log successful retrieval
     const budgetCount = data.results?.budget?.length || 0;
-    consoleLog(`Retrieved ${budgetCount} budget codes`);
+    //consoleLog(`Retrieved ${budgetCount} budget codes`);
 
     // Format the budget data for easy reference
     const budgetCodes = (data.results?.budget || []).map((item: any) => ({

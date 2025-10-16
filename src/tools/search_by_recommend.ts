@@ -57,7 +57,7 @@ export async function handleSearchByRecommend(params: any) {
       );
 
     const searchParams = searchTerms.join(', ');
-    consoleLog(`Searching gourmets by recommendation: ${searchParams}`);
+    //consoleLog(`Searching gourmets by recommendation: ${searchParams}`);
 
     // Make the API request
     const response = await fetch(apiUrl.toString());
@@ -91,9 +91,9 @@ export async function handleSearchByRecommend(params: any) {
     }
 
     // Log successful search
-    consoleLog(
-      `Found ${data.results?.results_available || 0} results for recommendation search: ${searchParams}`,
-    );
+    //consoleLog(
+    //   `Found ${data.results?.results_available || 0} results for recommendation search: ${searchParams}`,
+    // );
 
     // Return structured results
     return {
